@@ -1,0 +1,25 @@
+var express = require('express');
+const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+var router = express.Router();
+const { json } = require('body-parser');
+const studentController = require("./studentController");
+const authenticate = require("../auth/index");
+router.get('/getStudentById', authenticate,studentController.getStudentById);
+router.get('/getStudentByClass', authenticate,studentController.getStudentByClass);
+router.post('/addStudent', authenticate,studentController.addStudent);
+router.put('/updateStudent', authenticate,studentController.updateStudent);
+router.delete('/deleteStudent', authenticate,studentController.deleteStudent);
+router.post('/addStudentAttendance', authenticate,studentController.addStudentAttendance);
+router.put('/updateStudentAttendance', authenticate,studentController.updateStudentAttendance);
+router.post('/addStudentAttendance', authenticate,studentController.addStudentAttendance);
+router.get('/getClass', authenticate,studentController.getClass);
+router.get('/getClassById', authenticate,studentController.getClassById);
+router.get('/getAcademicYear', authenticate,studentController.getAcademicYear);
+router.get('/getCurrentAcademicYear', authenticate,studentController.getCurrentAcademicYear);
+router.post('/upgradStudent', authenticate,studentController.upgradStudent);
+router.post('/addAttendance', authenticate,studentController.addAttendance);
+router.get('/getStudentAttendanceByClass', authenticate,studentController.getStudentAttendanceByClass);
+router.get('/getStudentAttendanceById', authenticate,studentController.getStudentAttendanceById);
+
+module.exports = router;

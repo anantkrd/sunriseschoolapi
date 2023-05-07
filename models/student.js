@@ -1,0 +1,83 @@
+const{Sequelize,DataTypes,Model}=require('sequelize');
+const sequelize=require('../config/database');
+
+class Student extends Model{
+
+}
+
+Student.init({
+    id:{
+        type:DataTypes.INTEGER,
+        autoIncrement:true,
+        primaryKey:true
+    },
+    firstName:{
+        type:DataTypes.STRING,
+        defaultValue:''
+    },
+    lastName:{
+        type:DataTypes.STRING,
+        defaultValue:''
+    },
+    fatherName:{
+        type:DataTypes.STRING,
+        defaultValue:''
+    },
+    motherName:{
+        type:DataTypes.STRING,
+        defaultValue:''
+    },
+    gender:{
+        type:DataTypes.ENUM('girl','boy'),
+        defaultValue:'boy'
+    },    
+    dateOfBirth:{
+        type:DataTypes.DATEONLY,
+    },
+    mobileNo:{
+        type:DataTypes.STRING,
+        defaultValue:''
+    },
+    email:{
+        type:DataTypes.STRING,
+        defaultValue:''
+    },
+    studentPassword:{
+        type:DataTypes.STRING,
+        defaultValue:''
+    },
+    address:{
+        type:DataTypes.TEXT,
+        defaultValue:''
+    },
+    classId:{
+        type:DataTypes.INTEGER,
+        defaultValue:0
+    },
+    academicYear:{
+        type:DataTypes.STRING,
+        defaultValue:''
+    },
+    dateOfAdmission:{
+        type:DataTypes.DATEONLY
+    },
+    status:{
+        type:DataTypes.ENUM('active','inactive','left'),
+        defaultValue:'active'
+    },
+    leftReason:{
+        type:DataTypes.STRING,
+        defaultValue:''
+    },
+    isDeleted:{
+        type:DataTypes.ENUM('N','Y'),
+        defaultValue:'N'
+    }
+},
+{
+    sequelize,
+    modelName:'Student',
+    tableName:'sunrise_student',    
+    timestamps:true
+})
+module.exports=Student;
